@@ -8,7 +8,11 @@ import os
 import math 
 from decimal import *
 
+
 limitk = 1e-100
+
+def calcularerror(n):
+	return Decimal(1/math.pi) - n
 
 def factorial(k):
     if k == 0:
@@ -36,6 +40,7 @@ def estimar_pi():
 		# Init value
 		p2 = calculatepart2(k)
 		print '   --->  Resultado iteracion(', k+1,') = ', p1*p2
+		print '   ------->  Error : ', calcularerror(p1*p2)
 		if(p1*p2) < limitk:
 			return k	
 			break
