@@ -8,7 +8,7 @@ import os
 import math 
 from decimal import *
 
-limitk = 10e-100
+limitk = 1e-100
 
 def factorial(k):
     if k == 0:
