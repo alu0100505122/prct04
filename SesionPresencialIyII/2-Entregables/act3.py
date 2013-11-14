@@ -12,8 +12,11 @@ from sympy import *
 def error(a, b):
 	return abs(b-a)
 
-def diff(f, x, h):
-	return ( f(x + h) - f(x - h)) / 2 * h
+def f(f, a):
+	return eval(str(f.subs('x', a)))
+
+def diff(fx, x, h):
+	return (f(fx, x + h) - f(fx, x - h)) / 2 * h
 
 
 def main():
@@ -27,13 +30,13 @@ def main():
 	print ' ------       Resultados de las operaciones        ---------- '
 	print ' ------------------------------------------------------------ '
 	
-	for f, p in zip(fucions, points):
+	for fx, p in zip(fucions, points):
 		print ' ------------------------------------------------------------ '
-		print ' --- Para la fucion = ', f
+		print ' --- Para la fucion = ', fx
 		print ' --- ( en x = ', p, ' y h = ', h, " )   "
-		a = diff(f, p, h)
+		a = diff(fx, p, h)
 		print ' --- My diff es     = ', a
-		b = sympy.diff(f).subs(x, p)
+		b = sympy.diff(fx).subs(x, p)
 		print ' --- Python diff es = ', b
 		print ' -----------> Error = ', error(a, b) 
 		print ' ------------------------------------------------------------ '
