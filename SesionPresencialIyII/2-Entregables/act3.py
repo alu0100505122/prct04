@@ -8,7 +8,6 @@ import os
 import math 
 import sympy
 from sympy import *
-from sympy.abc import x, y
 
 def error(a, b):
 	return abs(b-a)
